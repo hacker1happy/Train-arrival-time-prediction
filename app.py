@@ -46,6 +46,7 @@ def predict():
 
         if len(l)==0:
             message = "Train Not Found"
+
         else :            
             final_features = [l]
 
@@ -63,7 +64,7 @@ def predict():
                 time = str(predictedTime) + " mins"
             message = trainName + " (" + str(trainNo) + ") will be " + time + " late." + "\n Sorry for the inconivence."
 
-        return render_template ("predict.html",msg = message,t=predictedTime,tm = time)
+        return render_template ("predict.html",msg = message)
 
 
 
