@@ -8,15 +8,19 @@ Train Time
 {% block content %}
 
 
-<div class="container">
-    <div class="main">
-    
-        <form action="/predict" method="post" class="input-grp">
-            <input type="text" class="input-field" id="train_no" name="train_no" required="true" placeholder="Train No"><br><br>
-            <input type="date" class="input-date" id="date" value="dd/mm/yy", name="date"><br><br><br>
-            <input type="submit" id="submit" value="Predict" class="submit-btn">
-        </form>
-    </div>
-    </div>
+
+<h1>Train Arrival Time</h1>
+<form action="/predict" method="post" >
+  <div class="row">
+    <label for="trainNo">Train Number</label>
+    <input type="text" name="train_no" autocomplete="off" placeholder="Train Number">
+  </div>
+  <div class="row">
+    <label for="date">Date</label>
+     <input type="date" value="dd/mm/yy", name="date">
+  </div>
+  <input type="submit" value="Predict" class="submit-btn">
+</form>
+
 
 {% endblock %}

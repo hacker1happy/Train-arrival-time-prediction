@@ -31,22 +31,24 @@ def predict():
 
         ind = 0
         l=[]
+        flag=False
         trainName=""
         for i in dataset["TrainNo"]:
-            if i == trainNo and dataset["Day"][ind] == day:
-                t,dist,region = dataset["Type"][ind],dataset["Distance"][ind],dataset["Region"][ind]
-                trainName = dataset["TrainName"][ind]
-                l.append(t)
-                l.append(dist)
-                l.append(region)
-                l.append(day)
-                break
+            if i == trainNo:
+                flag=True
+                if dataset["Day"][ind] == day:
+                    t,dist,region = dataset["Type"][ind],dataset["Distance"][ind],dataset["Region"][ind]
+                    trainName = dataset["TrainName"][ind]
+                    l.append(t)
+                    l.append(dist)
+                    l.append(region)
+                    l.append(day)
+                    break
             ind += 1
-
-
-        if len(l)==0:
+        if flag and len(l)==0:
+            message = "Train does not run on the given date"
+        elif flag==False:
             message = "Train Not Found"
-
         else :            
             final_features = [l]
 
@@ -66,17 +68,6 @@ def predict():
 
         return render_template ("predict.html",msg = message)
 
-
-
-
-
-
-
-  
-    
-    # final_features = [np.array(int_features)]
-
-    # return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
 
 
 if __name__ == "__main__":
