@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 import datetime
-from flask import Flask, url_for, redirect, jsonify, request,render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -71,4 +71,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run()
