@@ -62,9 +62,14 @@ def predict():
                     time = hrs + " hrs "
                 else:
                     time = hrs + " hrs " + str(mins) + " mins" 
-            else:
+
+            elif predictedTime<0:
+                message = "Your train is arriving on time"
+
+            else :
                 time = str(predictedTime) + " mins"
             message = trainName + " (" + str(trainNo) + ") will be " + time + " late." + "\n Sorry for the inconivence."
+    
 
         return render_template ("predict.html",msg = message)
 
